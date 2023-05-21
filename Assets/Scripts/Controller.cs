@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool closed = false;
+    private SoundManager soundManager;
+
+    private void Awake()
     {
-        
+        gameObject.GetComponent<SoundManager>();
+        soundManager = gameObject.GetComponent<SoundManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        // check if c is held
+        if (Input.GetKey(KeyCode.C))
+        {
+            closed = true;
+        } 
+        else
+        {
+            closed = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            soundManager.PlayCuica(closed, 0);
+        }
     }
 }

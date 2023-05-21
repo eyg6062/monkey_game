@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5400527168610623110}
   - component: {fileID: 2136189246634631249}
   - component: {fileID: 687781161814375490}
+  - component: {fileID: -5065533388737605327}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -59,7 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songPf: {fileID: 2998014118745394618, guid: 81cd445158cf1e14695e61ad3d3fadce, type: 3}
-  midiFilename: cuica midi test2
+  demoMidiFilename: demo_test1
+  mapMidiFilename: map_test1
   bpm: 175.96
   perfectRange: 50
   goodRange: 70
@@ -87,3 +89,18 @@ MonoBehaviour:
   - {fileID: 6757852808001220363, guid: 2a322d2b4089e2f42bc9fe506b87acae, type: 3}
   - {fileID: 2962612996322374784, guid: a5eb744994176af40a85d7cac853deaf, type: 3}
   - {fileID: 583469742592394061, guid: f42faccb2ac26074eab0dda962356a22, type: 3}
+  - {fileID: 2297797919640589140, guid: da1b4992a92575f49851b9e89bc05cce, type: 3}
+  - {fileID: 6757852808001220363, guid: 2a322d2b4089e2f42bc9fe506b87acae, type: 3}
+  - {fileID: 583469742592394061, guid: f42faccb2ac26074eab0dda962356a22, type: 3}
+--- !u!114 &-5065533388737605327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761397852347307188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc8c3f8c566596459ef677693715bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

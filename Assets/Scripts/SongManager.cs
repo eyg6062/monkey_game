@@ -11,8 +11,17 @@ public class SongManager : MonoBehaviour
 
     [SerializeField] private GameObject songPf;
     private AudioSource song;
-    [SerializeField] private string midiFilename;
+    [SerializeField] private string demoMidiFilename;
+    [SerializeField] private string mapMidiFilename;
     [SerializeField] private float bpm;
+
+    private List<MapNote> demoNotes;
+    private int demoNotesIdx = 0;
+    private MapNote currDemoNote;
+
+    private List<MapNote> mapNotes;
+    private int mapNotesIdx = 0;
+    private MapNote currMapNote;
 
     [SerializeField] private int perfectRange;
     [SerializeField] private int goodRange;
@@ -55,11 +64,31 @@ public class SongManager : MonoBehaviour
         }
         beatList.Add(float.MaxValue);
 
+        // reads midi for demoMap and beatMap
+        demoNotes = ReadMapNotes(demoMidiFilename);
+        currDemoNote = demoNotes[0];
+
+        mapNotes = ReadMapNotes(mapMidiFilename);
+        currMapNote = mapNotes[0];
+
+        /*
+        foreach (MapNote mapNote in demoNotes)
+        {
+            Debug.Log(mapNote.ToString());
+        }
+        */
+        
+    }
+
+    private List<MapNote> ReadMapNotes(string strMidiFilename)
+    {
+        List<MapNote> mapNotesList = new List<MapNote>();
+
         // load in midi file, get note list
-        MidiFile file = MidiFile.Read("Assets/Audio/" + midiFilename + ".mid");
+        MidiFile file = MidiFile.Read("Assets/Audio/" + strMidiFilename + ".mid");
         ICollection<Note> midiNotes = file.GetNotes();
 
-        List<MapNote> mapNotes = new List<MapNote>();
+        mapNotesList = new List<MapNote>();
 
         foreach (Note note in midiNotes)
         {
@@ -74,19 +103,16 @@ public class SongManager : MonoBehaviour
             // get note timing, convert to 60bpm, then to specified bpm
             long rawTime = note.GetTimedNoteOnEvent().Time;
             long time60 = rawTime * 25 / 24;
-            long time = (long)(  1 / (bpm / StandardBpm) * (float)time60  );
+            long time = (long)(1 / (bpm / StandardBpm) * (float)time60);
 
             // add mapNote to list
             MapNote mapNote = new MapNote(closed, time);
-            mapNotes.Add(mapNote);
+            mapNotesList.Add(mapNote);
 
         }
+        mapNotesList.Add(new MapNote(false, long.MaxValue));
 
-        // debug
-        foreach (MapNote mapNote in mapNotes)
-        {
-            Debug.Log(mapNote.ToString());
-        }
+        return mapNotesList;
         
     }
 
@@ -95,23 +121,28 @@ public class SongManager : MonoBehaviour
     {
         // start song and offset timer
         song.PlayDelayed(1.5f);
-        Debug.Log(timer.GetTimer());
+        //Debug.Log(timer.GetTimer());
 
     }
 
     public void Update()
     {
-        Debug.Log(timer.GetTimer());
+        //Debug.Log(timer.GetTimer());
 
         if (timer.IsActivated())
         {
-            if (timer.GetTimer() >= beatList[beatListIdx])
+
+            if (timer.GetTimer() >= currDemoNote.GetTiming()   /*beatList[beatListIdx]*/  )
             {
-                soundManager.PlayCuica(false);
-                
-                beatListIdx++;
+                soundManager.PlayCuica(currDemoNote.IsClosed(), 1);
+
+                demoNotesIdx++;
+                currDemoNote = demoNotes[demoNotesIdx];
+                //beatListIdx++;
             }
         }
+
+
     }
 
 }
