@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2693311728207024031}
   - component: {fileID: 5400527168610623110}
   - component: {fileID: 2136189246634631249}
+  - component: {fileID: 687781161814375490}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5400527168610623110
 MonoBehaviour:
@@ -60,3 +61,29 @@ MonoBehaviour:
   SongPf: {fileID: 2998014118745394618, guid: 81cd445158cf1e14695e61ad3d3fadce, type: 3}
   midiFilename: cuica midi test2
   bpm: 175.96
+  perfectRange: 50
+  goodRange: 70
+  offset: 90
+  timerPf: {fileID: 3599134305187262760, guid: 9aaa8b896f1adcf4f823635142f26d11, type: 3}
+--- !u!114 &687781161814375490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761397852347307188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb80877d71f79d4888ddc9390d43d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowCuicaPfs:
+  - {fileID: 3350609621512561913, guid: 23d95da6beece224ca0faab0e4db981e, type: 3}
+  - {fileID: 6667724264293978453, guid: 3e2f3fbfcfd8fbc4dbbff1c7ae63ac38, type: 3}
+  - {fileID: 7018256664658929612, guid: 9d04c2eb65bef6942aedc222d57ca079, type: 3}
+  - {fileID: 7338599951228323468, guid: bfced804d3f3a2242abf8f9bc4dc793d, type: 3}
+  highCuicaPfs:
+  - {fileID: 2297797919640589140, guid: da1b4992a92575f49851b9e89bc05cce, type: 3}
+  - {fileID: 6757852808001220363, guid: 2a322d2b4089e2f42bc9fe506b87acae, type: 3}
+  - {fileID: 2962612996322374784, guid: a5eb744994176af40a85d7cac853deaf, type: 3}
+  - {fileID: 583469742592394061, guid: f42faccb2ac26074eab0dda962356a22, type: 3}

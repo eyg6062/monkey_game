@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6265685893212294603
+--- !u!1001 &2685067862750692921
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -6734484434477697163, guid: 19595dc9705367f468b611df7f12c428, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: c79463a793efa9c4e941540b6264d89d, type: 3}
+      objectReference: {fileID: 8300000, guid: da5517f2a0052724496f7dfadfc40a61, type: 3}
     - target: {fileID: 2392631389536881337, guid: 19595dc9705367f468b611df7f12c428, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8686302034805877042, guid: 19595dc9705367f468b611df7f12c428, type: 3}
       propertyPath: m_Name
-      value: LowCuica1
+      value: HighCuica2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

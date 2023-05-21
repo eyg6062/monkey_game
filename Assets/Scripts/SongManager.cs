@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class SongManager : MonoBehaviour
 {
+    private Controller controller;
+    private SoundManager soundManager;
 
     [SerializeField] private GameObject SongPf;
     [SerializeField] private string midiFilename;
@@ -14,10 +16,40 @@ public class SongManager : MonoBehaviour
     [SerializeField] private int perfectRange;
     [SerializeField] private int goodRange;
 
+    [SerializeField] private long offset; 
+    [SerializeField] private GameObject timerPf;
+    private Timer timer;
+
+    private float beatLength;
+    private int beatListIdx = 0;
+    private List<float> beatList;
+
     static private float StandardBpm = 60;
 
     void Awake()
     {
+        // get controller 
+        controller = gameObject.GetComponent<Controller>();
+
+        // get SoundManager
+        soundManager = gameObject.GetComponent<SoundManager>();
+
+        // set up timer
+        GameObject timerObj = Instantiate(timerPf);
+        timer = timerObj.GetComponent<Timer>();
+        timer.SetUpTimer(offset);
+
+        // set up beat length
+        beatLength = (1f / ((float)bpm / StandardBpm) * 1000f);
+
+        // make beat list
+        beatList = new List<float>();
+        for (int i = 0; i < 128; i++)
+        {
+            beatList.Add(beatLength * i);
+        }
+        beatList.Add(float.MaxValue);
+
         // load in midi file, get note list
         MidiFile file = MidiFile.Read("Assets/Audio/" + midiFilename + ".mid");
         ICollection<Note> midiNotes = file.GetNotes();
@@ -50,14 +82,32 @@ public class SongManager : MonoBehaviour
         {
             Debug.Log(mapNote.ToString());
         }
-
-        // load in song
         
     }
 
-    // Update is called once per frame
-    void Update()
+    // called by game manager
+    public void StartSong()
     {
-        
+        // start song and offset timer
+
+        Instantiate(SongPf);
+        Debug.Log(timer.GetTimer());
+        timer.StartTimer();
+        Debug.Log(timer.GetTimer());
+
     }
+
+    public void Update()
+    {
+        if (!timer.IsOffset())
+        {
+            if (timer.GetTimer() >= beatList[beatListIdx])
+            {
+                soundManager.PlayCuica(false);
+                
+                beatListIdx++;
+            }
+        }
+    }
+
 }
