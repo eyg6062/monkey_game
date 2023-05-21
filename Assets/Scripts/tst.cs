@@ -3,7 +3,6 @@ using Melanchall.DryWetMidi.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DWMidi = Melanchall.DryWetMidi;
 
 public class tst : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class tst : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private GameObject lowCuica1Pf;
 
-    static private int StandardBPM = 60;
+    // static private float StandardBPM = 60;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +30,7 @@ public class tst : MonoBehaviour
             timings.Add(time);
         }
 
-        //int bpm = 180;
+        //float bpm = 175.96; // for the elevator music
 
 
         // grab audio thing
