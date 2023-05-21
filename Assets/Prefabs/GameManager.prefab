@@ -60,12 +60,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songPf: {fileID: 2998014118745394618, guid: 81cd445158cf1e14695e61ad3d3fadce, type: 3}
-  demoMidiFilename: demo_test1
-  mapMidiFilename: map_test1
+  demoMidiFilename: demo_test2
+  mapMidiFilename: map_test2
   bpm: 175.96
   perfectRange: 40
   goodRange: 80
-  offset: 1600
+  offset: 1590
   timerPf: {fileID: 3599134305187262760, guid: 9aaa8b896f1adcf4f823635142f26d11, type: 3}
 --- !u!114 &687781161814375490
 MonoBehaviour:

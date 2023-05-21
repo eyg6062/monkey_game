@@ -121,7 +121,7 @@ public class SongManager : MonoBehaviour
     public void StartSong()
     {
         // start song and offset timer
-        song.PlayDelayed(1.5f);
+        song.PlayDelayed(2.5f);
         //Debug.Log(timer.GetTimer());
 
     }
