@@ -35,6 +35,9 @@ public class SongManager : MonoBehaviour
     private int beatListIdx = 0;
     private List<float> beatList;
 
+    private GameObject lilMoke;
+    private MonkeyAnimate animate;
+
     static private float StandardBpm = 60;
 
     void Awake()
@@ -79,6 +82,12 @@ public class SongManager : MonoBehaviour
         }
         */
         
+    }
+
+    private void Start()
+    {
+        lilMoke = GameObject.FindGameObjectWithTag("Lil Moke");
+        animate = lilMoke.GetComponent<MonkeyAnimate>();
     }
 
     private List<MapNote> ReadMapNotes(string strMidiFilename)
@@ -175,6 +184,8 @@ public class SongManager : MonoBehaviour
             if (timer.GetTimer() >= currDemoNote.GetTiming()   /*beatList[beatListIdx]*/  )
             {
                 soundManager.PlayCuica(currDemoNote.IsClosed(), 1);
+
+                animate.PlayCuica(currDemoNote.IsClosed());
 
                 demoNotesIdx++;
                 currDemoNote = demoNotes[demoNotesIdx];
