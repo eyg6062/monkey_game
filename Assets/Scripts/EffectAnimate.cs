@@ -36,6 +36,13 @@ public class EffectAnimate : MonoBehaviour
         effectTimer = 0;
     }
 
+    public void LilMokePlay()
+    {
+        animator.Play("lil moke play");
+        effectPlaying = true;
+        effectTimer = 0;
+    }
+
     private void Update()
     {
         if (effectPlaying)

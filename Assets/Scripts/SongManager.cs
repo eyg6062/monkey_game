@@ -41,6 +41,9 @@ public class SongManager : MonoBehaviour
     private GameObject bigMokeEffect;
     private EffectAnimate effectAnimate;
 
+    private GameObject lilMokeEffect;
+    private EffectAnimate lilMokeEffectAnimate;
+
     static private float StandardBpm = 60;
 
     void Awake()
@@ -94,6 +97,9 @@ public class SongManager : MonoBehaviour
 
         bigMokeEffect = GameObject.FindGameObjectWithTag("Big Moke Effect");
         effectAnimate = bigMokeEffect.GetComponent<EffectAnimate>();
+
+        lilMokeEffect = GameObject.FindGameObjectWithTag("Lil Moke Effect");
+        lilMokeEffectAnimate = lilMokeEffect.GetComponent<EffectAnimate>();
     }
 
     private List<MapNote> ReadMapNotes(string strMidiFilename)
@@ -196,6 +202,8 @@ public class SongManager : MonoBehaviour
                 soundManager.PlayCuica(currDemoNote.IsClosed(), 1);
 
                 animate.PlayCuica(currDemoNote.IsClosed());
+
+                lilMokeEffectAnimate.LilMokePlay();
 
                 demoNotesIdx++;
                 currDemoNote = demoNotes[demoNotesIdx];
