@@ -9,7 +9,8 @@ public class SongManager : MonoBehaviour
     private Controller controller;
     private SoundManager soundManager;
 
-    [SerializeField] private GameObject SongPf;
+    [SerializeField] private GameObject songPf;
+    private AudioSource song;
     [SerializeField] private string midiFilename;
     [SerializeField] private float bpm;
 
@@ -34,10 +35,14 @@ public class SongManager : MonoBehaviour
         // get SoundManager
         soundManager = gameObject.GetComponent<SoundManager>();
 
+        // set up song
+        GameObject songObj = Instantiate(songPf);
+        song = songObj.GetComponent<AudioSource>();
+
         // set up timer
         GameObject timerObj = Instantiate(timerPf);
         timer = timerObj.GetComponent<Timer>();
-        timer.SetUpTimer(offset);
+        timer.SetUpTimer(song, offset);
 
         // set up beat length
         beatLength = (1f / ((float)bpm / StandardBpm) * 1000f);
@@ -89,17 +94,16 @@ public class SongManager : MonoBehaviour
     public void StartSong()
     {
         // start song and offset timer
-
-        Instantiate(SongPf);
-        Debug.Log(timer.GetTimer());
-        timer.StartTimer();
+        song.PlayDelayed(1.5f);
         Debug.Log(timer.GetTimer());
 
     }
 
     public void Update()
     {
-        if (!timer.IsOffset())
+        Debug.Log(timer.GetTimer());
+
+        if (timer.IsActivated())
         {
             if (timer.GetTimer() >= beatList[beatListIdx])
             {

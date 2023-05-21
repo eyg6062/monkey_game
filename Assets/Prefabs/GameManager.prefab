@@ -58,12 +58,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bb5cab51be0ce47a942d32feebfd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SongPf: {fileID: 2998014118745394618, guid: 81cd445158cf1e14695e61ad3d3fadce, type: 3}
+  songPf: {fileID: 2998014118745394618, guid: 81cd445158cf1e14695e61ad3d3fadce, type: 3}
   midiFilename: cuica midi test2
   bpm: 175.96
   perfectRange: 50
   goodRange: 70
-  offset: 90
+  offset: 1600
   timerPf: {fileID: 3599134305187262760, guid: 9aaa8b896f1adcf4f823635142f26d11, type: 3}
 --- !u!114 &687781161814375490
 MonoBehaviour:

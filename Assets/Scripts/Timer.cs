@@ -4,48 +4,47 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-
-    private float timer = 0;
     private bool timerOn = false;
-    private float offset = 0;
+    private float timer;
+    private float offset;
     private bool isOffset = true;
+
+    private AudioSource song;
 
     // Update is called once per frame
     void Update()
     {
-        if (timerOn)
-        {
-            timer += Time.deltaTime * 1000;
-
-            if (isOffset)
-            {
-                if (timer >= 0)
-                {
-                    isOffset = false;
-                }
-            }
-
-            //Debug.Log(timer);
-            
-        }
         
+        timer = song.time * 1000;
+        //timer += Time.deltaTime * 1000;
+
+        if (isOffset)
+        {
+            if (timer >= offset)
+            {
+                ActivateTimer();
+                isOffset = false;
+            }
+        }
+
+        //Debug.Log(GetTimer());
+            
     }
 
-    public void SetUpTimer(float offset)
-    {
-        this.offset = offset;
-        timer -= offset;
-    }
-
-
-    public void StopTimer()
-    {
-        timerOn = false;
-    }
-
-    public void StartTimer()
+    private void ActivateTimer()
     {
         timerOn = true;
+    }
+
+    public bool IsActivated()
+    {
+        return timerOn;
+    }
+
+    public void SetUpTimer(AudioSource song, float offset)
+    {
+        this.song = song;
+        this.offset = offset;
     }
 
     public void ResetTimer()
@@ -56,8 +55,10 @@ public class Timer : MonoBehaviour
 
     public float GetTimer()
     {
-        return timer;
+        return timer - offset;
     }
+
+
 
     public bool IsOffset()
     {
