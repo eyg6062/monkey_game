@@ -32,7 +32,7 @@ public class SongManager : MonoBehaviour
     private Timer timer;
 
     private float beatLength;
-    private int beatListIdx = 0;
+    //private int beatListIdx = 0;
     private List<float> beatList;
 
     private GameObject lilMoke;
@@ -44,6 +44,8 @@ public class SongManager : MonoBehaviour
     private GameObject lilMokeEffect;
     private EffectAnimate lilMokeEffectAnimate;
 
+    private ScoreManager scoreManager;
+
     static private float StandardBpm = 60;
 
     void Awake()
@@ -53,6 +55,9 @@ public class SongManager : MonoBehaviour
 
         // get SoundManager
         soundManager = gameObject.GetComponent<SoundManager>();
+
+        // score manager
+        scoreManager = gameObject.GetComponent<ScoreManager>();
 
         // set up song
         GameObject songObj = Instantiate(songPf);
@@ -159,12 +164,18 @@ public class SongManager : MonoBehaviour
             if (msOffAbs <= perfectRange)
             {
                 effectAnimate.Perfect();
+
+                scoreManager.Perfect();
+
                 Debug.Log("perfect");
                 NextMapNote();
             }
             else if (msOffAbs <= goodRange)
             {
                 effectAnimate.Good();
+
+                scoreManager.Good();
+
                 Debug.Log("good");
                 NextMapNote();
             }
