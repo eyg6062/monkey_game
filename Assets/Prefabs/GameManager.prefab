@@ -63,8 +63,8 @@ MonoBehaviour:
   demoMidiFilename: demo_test1
   mapMidiFilename: map_test1
   bpm: 175.96
-  perfectRange: 50
-  goodRange: 70
+  perfectRange: 40
+  goodRange: 80
   offset: 1600
   timerPf: {fileID: 3599134305187262760, guid: 9aaa8b896f1adcf4f823635142f26d11, type: 3}
 --- !u!114 &687781161814375490

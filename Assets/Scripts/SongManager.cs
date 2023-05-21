@@ -2,6 +2,7 @@ using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class SongManager : MonoBehaviour
@@ -23,8 +24,8 @@ public class SongManager : MonoBehaviour
     private int mapNotesIdx = 0;
     private MapNote currMapNote;
 
-    [SerializeField] private int perfectRange;
-    [SerializeField] private int goodRange;
+    [SerializeField] private float perfectRange;
+    [SerializeField] private float goodRange;
 
     [SerializeField] private long offset; 
     [SerializeField] private GameObject timerPf;
@@ -125,6 +126,45 @@ public class SongManager : MonoBehaviour
 
     }
 
+    public void CheckNote(bool closed)
+    {
+        float msOff = currMapNote.GetTiming() - timer.GetTimer();
+        float msOffAbs = math.abs(msOff);
+        Debug.Log(msOff);
+
+        if (closed == currMapNote.IsClosed())
+        {
+
+            if (msOffAbs <= perfectRange)
+            {
+                Debug.Log("perfect");
+                NextMapNote();
+            }
+            else if (msOffAbs <= goodRange)
+            {
+                Debug.Log("good");
+                NextMapNote();
+            }
+            else
+            {
+                Debug.Log("miss");
+            }
+
+        } 
+        else
+        {
+            Debug.Log("miss");
+        }
+
+        
+    }
+
+    private void NextMapNote()
+    {
+        mapNotesIdx++;
+        currMapNote = mapNotes[mapNotesIdx];
+    }
+
     public void Update()
     {
         //Debug.Log(timer.GetTimer());
@@ -140,6 +180,13 @@ public class SongManager : MonoBehaviour
                 currDemoNote = demoNotes[demoNotesIdx];
                 //beatListIdx++;
             }
+
+            if (timer.GetTimer() > currMapNote.GetTiming() + goodRange)
+            {
+                Debug.Log("miss");
+                NextMapNote();
+            }
+
         }
 
 

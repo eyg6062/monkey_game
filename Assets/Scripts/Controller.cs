@@ -6,11 +6,13 @@ public class Controller : MonoBehaviour
 {
     private bool closed = false;
     private SoundManager soundManager;
+    private SongManager songManager;
 
     private void Awake()
     {
-        gameObject.GetComponent<SoundManager>();
         soundManager = gameObject.GetComponent<SoundManager>();
+
+        songManager = gameObject.GetComponent<SongManager>();
     }
 
     private void Update()
@@ -27,7 +29,10 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+
+            songManager.CheckNote(closed);
             soundManager.PlayCuica(closed, 0);
+
         }
     }
 }
