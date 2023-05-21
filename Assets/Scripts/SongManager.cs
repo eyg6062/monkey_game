@@ -38,6 +38,9 @@ public class SongManager : MonoBehaviour
     private GameObject lilMoke;
     private MonkeyAnimate animate;
 
+    private GameObject bigMokeEffect;
+    private EffectAnimate effectAnimate;
+
     static private float StandardBpm = 60;
 
     void Awake()
@@ -88,6 +91,9 @@ public class SongManager : MonoBehaviour
     {
         lilMoke = GameObject.FindGameObjectWithTag("Lil Moke");
         animate = lilMoke.GetComponent<MonkeyAnimate>();
+
+        bigMokeEffect = GameObject.FindGameObjectWithTag("Big Moke Effect");
+        effectAnimate = bigMokeEffect.GetComponent<EffectAnimate>();
     }
 
     private List<MapNote> ReadMapNotes(string strMidiFilename)
@@ -146,22 +152,26 @@ public class SongManager : MonoBehaviour
 
             if (msOffAbs <= perfectRange)
             {
+                effectAnimate.Perfect();
                 Debug.Log("perfect");
                 NextMapNote();
             }
             else if (msOffAbs <= goodRange)
             {
+                effectAnimate.Good();
                 Debug.Log("good");
                 NextMapNote();
             }
             else
             {
+                effectAnimate.Miss();
                 Debug.Log("miss");
             }
 
         } 
         else
         {
+            effectAnimate.Miss();
             Debug.Log("miss");
         }
 
