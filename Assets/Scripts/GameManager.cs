@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     private SongManager songManager;
 
+    [SerializeField] GameObject buttonScriptObjectPf;
+
     private void Awake()
     {
         songManager = gameObject.GetComponent<SongManager>();
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Instantiate(buttonScriptObjectPf);
         songManager.StartSong();
     }
 

@@ -223,6 +223,7 @@ public class SongManager : MonoBehaviour
 
             if (timer.GetTimer() > currMapNote.GetTiming() + goodRange)
             {
+                effectAnimate.Miss();
                 Debug.Log("miss");
                 NextMapNote();
             }

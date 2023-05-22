@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f3263fff6f09041a176cf6fddd8ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonScriptObjectPf: {fileID: 6555132819303316459, guid: d150fdb3a0be5644c835f3bb49a700fc, type: 3}
 --- !u!114 &2136189246634631249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,8 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songPf: {fileID: 2998014118745394618, guid: 81cd445158cf1e14695e61ad3d3fadce, type: 3}
-  demoMidiFilename: demo_test2
-  mapMidiFilename: map_test2
+  demoMidiFilename: demo2
+  mapMidiFilename: map2
   bpm: 175.96
   perfectRange: 40
   goodRange: 80
