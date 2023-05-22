@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayButton : MonoBehaviour
     private void OnMouseDown()
     {
         soundManager.PlayCuica(false, 1);
+        SceneManager.LoadScene(1);
+
     }
 
     // Update is called once per frame

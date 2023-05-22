@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: bd8a7cfe57d26b94ba728efbc9fa65df
+  - enabled: 1
     path: Assets/Scenes/BossaSong.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
