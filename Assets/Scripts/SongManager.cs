@@ -201,7 +201,7 @@ public class SongManager : MonoBehaviour
         currMapNote = mapNotes[mapNotesIdx];
     }
 
-    public void Update()
+    public void Update() 
     {
         //Debug.Log(timer.GetTimer());
 

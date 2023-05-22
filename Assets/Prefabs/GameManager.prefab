@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songPf: {fileID: 2998014118745394618, guid: 81cd445158cf1e14695e61ad3d3fadce, type: 3}
-  demoMidiFilename: demo2
-  mapMidiFilename: map2
+  demoMidiFilename: demo3
+  mapMidiFilename: map3
   bpm: 175.96
   perfectRange: 40
   goodRange: 80
