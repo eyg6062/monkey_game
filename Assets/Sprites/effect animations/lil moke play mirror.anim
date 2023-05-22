@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: lil moke play
+  m_Name: lil moke play mirror
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 63dbe7b12cbfd9f49bddf1beab35dfff, type: 3}
-    - time: 0.33333334
       value: {fileID: 21300000, guid: 19d058bf9047cc54eabe35954ab1f20c, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: 63dbe7b12cbfd9f49bddf1beab35dfff, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -43,8 +43,8 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 63dbe7b12cbfd9f49bddf1beab35dfff, type: 3}
     - {fileID: 21300000, guid: 19d058bf9047cc54eabe35954ab1f20c, type: 3}
+    - {fileID: 21300000, guid: 63dbe7b12cbfd9f49bddf1beab35dfff, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
